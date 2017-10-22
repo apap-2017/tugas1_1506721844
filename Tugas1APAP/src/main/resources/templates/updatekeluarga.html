@@ -44,9 +44,9 @@
 						      <input th:field="*{rw}" class="form-control" type="text" id="inputRW" th:value="${keluarga.rw}"></input>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputKelurahan/Desa">Kelurahan/Desa</label>
-						      <select th:field="*{idKelurahan}" class="form-control" id="inputKelurahan">
-							      <option th:each="kelurahan,iterationStatus: ${kelurahans}" th:value="${kelurahan.id}" th:text="${kelurahan.namaKelurahan}" th:selected="${kelurahan.id} == ${currentKelurahan} ? 'true' : 'false'">Nama Kelurahan</option>
+						    <label for="inputKota">Kota/Kabupaten</label>
+						      <select class="form-control" id="inputKota">
+							      <option th:each="kota,iterationStatus: ${kotas}" th:value="${kota.id}" th:text="${kota.namaKota}" th:selected="${kota.id} == ${currentKota} ? 'true' : 'false'">Nama Kota</option>
 							  </select>
 						  </div>
 						  <div class="form-group">
@@ -56,9 +56,9 @@
 							  </select>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputKota">Kota/Kabupaten</label>
-						      <select class="form-control" id="inputKota">
-							      <option th:each="kota,iterationStatus: ${kotas}" th:value="${kota.id}" th:text="${kota.namaKota}" th:selected="${kota.id} == ${currentKota} ? 'true' : 'false'">Nama Kota</option>
+						    <label for="inputKelurahan/Desa">Kelurahan/Desa</label>
+						      <select th:field="*{idKelurahan}" class="form-control" id="inputKelurahan">
+							      <option th:each="kelurahan,iterationStatus: ${kelurahans}" th:value="${kelurahan.id}" th:text="${kelurahan.namaKelurahan}" th:selected="${kelurahan.id} == ${currentKelurahan} ? 'true' : 'false'">Nama Kelurahan</option>
 							  </select>
 						  </div>
 						  <div class="form-group row">

@@ -70,6 +70,7 @@ public class PendudukController {
 			
 			KeluargaModel km = keluargaDAO.selectKeluargaWithID(pm.getIdKeluarga());
 			model.addAttribute("km", km);
+			model.addAttribute("nkk", km.getNomorKk());
 			
 			KelurahanModel kem = kelurahanDAO.selectKelurahan(km.getIdKelurahan());
 			model.addAttribute("kem", kem);
