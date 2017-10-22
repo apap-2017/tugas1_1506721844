@@ -33,9 +33,7 @@ public interface PendudukMapper {
 		    @Result(property="isWafat", column="is_wafat")
 		}) PendudukModel selectPenduduk (@Param("nik") String nik);
 	
-	@Select("select count(*) as nik " +
-			"from penduduk " +
-			"where nik like #{nikPart}")
+	@Select("select nik from penduduk where nik like #{nikPart} order by nik desc limit 1")
 	String findSimilarNIK (@Param("nikPart") String nikPart);
 	
 	@Select("SELECT id FROM penduduk ORDER BY ID DESC LIMIT 1")

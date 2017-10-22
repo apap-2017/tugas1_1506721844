@@ -115,7 +115,10 @@ public class PendudukController {
 		nik += bulanLahir;
 		nik += tahunLahir;
 		
-		int offset = Integer.parseInt(pendudukDAO.findSimilarNIK(nik)) + 1;
+		String lastSimilarNIK = pendudukDAO.findSimilarNIK(nik);
+		int lastDigitSimilarNIK = Integer.parseInt(lastSimilarNIK.substring(lastSimilarNIK.length() - 1));
+		
+		int offset = lastDigitSimilarNIK + 1;
 		
 		if(offset < 10)
 			nik += "000" + offset;

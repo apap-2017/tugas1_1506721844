@@ -24,7 +24,7 @@ public class PendudukServiceDatabase implements PendudukService {
 
 	@Override
 	public String findSimilarNIK(String nikPart) {
-		log.info("select count(*) from penduduk where nik like {}", nikPart);
+		log.info("select nik from penduduk where nik like {} order by nik desc limit 1", nikPart);
 		String nikParts = nikPart + "%";
 		return pendudukMapper.findSimilarNIK(nikParts);
 	}
