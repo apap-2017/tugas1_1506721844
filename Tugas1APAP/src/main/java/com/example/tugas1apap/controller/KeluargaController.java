@@ -100,7 +100,10 @@ public class KeluargaController {
 		
 		nkk += currentDate;
 		
-		int offset = Integer.parseInt(keluargaDAO.findSimilarNKK(nkk)) + 1;
+		String lastSimilarNKK = keluargaDAO.findSimilarNKK(nkk);
+		int lastDigitSimilarNKK = Integer.parseInt(lastSimilarNKK.substring(lastSimilarNKK.length() - 1));
+		
+		int offset = lastDigitSimilarNKK + 1;
 		
 		if(offset < 10)
 			nkk += "000" + offset;
@@ -178,7 +181,10 @@ public class KeluargaController {
     		
     		nkk += currentDate;
     		
-    		int offset = Integer.parseInt(keluargaDAO.findSimilarNKK(nkkBaru)) + 1;
+    		String lastSimilarNKK = keluargaDAO.findSimilarNKK(nkk);
+    		int lastDigitSimilarNKK = Integer.parseInt(lastSimilarNKK.substring(lastSimilarNKK.length() - 1));
+    		
+    		int offset = lastDigitSimilarNKK + 1;
     		
     		if(offset < 10)
     			nkkBaru += "000" + offset;

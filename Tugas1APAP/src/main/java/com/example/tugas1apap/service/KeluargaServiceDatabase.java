@@ -37,7 +37,7 @@ public class KeluargaServiceDatabase implements KeluargaService {
 
 	@Override
 	public String findSimilarNKK(String nkkPart) {
-		log.info("select count(*) from penduduk where nkk like {}", nkkPart);
+		log.info("select nomor_kk from keluarga where nomor_kk like {} order by nomor_kk desc limit 1", nkkPart);
 		String nkkParts = nkkPart + "%";
 		return keluargaMapper.findSimilarNKK(nkkParts);
 	}

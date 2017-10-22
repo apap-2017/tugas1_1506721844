@@ -60,9 +60,7 @@ public interface KeluargaMapper {
 		    @Result(property="isWafat", column="is_wafat")
 		}) List<PendudukModel> selectAnggotaKeluarga(@Param("id") String id);
 	
-	@Select("select count(*) as nkk " +
-			"from keluarga " +
-			"where nomor_kk like #{nkkPart}")
+	@Select("select nomor_kk from keluarga where nomor_kk like #{nkkPart} order by nomor_kk desc limit 1")
 	String findSimilarNKK (@Param("nkkPart") String nkkPart);
 	
 	@Select("SELECT id FROM keluarga ORDER BY ID DESC LIMIT 1")
