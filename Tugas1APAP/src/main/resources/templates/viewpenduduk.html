@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous"></link>
+
+<title>Lihat Data Penduduk</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<a class="navbar-brand" href="/">SI Kependudukan</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active"><a class="nav-link" href="/">Home
+									<span class="sr-only">(current)</span>
+							</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Cari
+									Data</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<br></br>
+			</div>
+		</div>
+
+		<div th:if="${isWafat == true}" class="row">
+			<div class="col">
+				<h3>Sukses!</h3>
+				<div
+					th:text="'Penduduk dengan NIK ' + ${nik} + ' sudah tidak aktif'"></div>
+			</div>
+		</div>
+		<div th:unless="${isWafat == true}">
+			<div class="row">
+				<div class="col">
+					<h5 th:text="'Lihat Data Penduduk - ' + ${pm.nik}"></h5>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<br></br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'NIK'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.nik}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Nama'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.nama}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Tempat/Tanggal Lahir'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.tempatLahir} + ', ' + ${tanggalLahir}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Alamat'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${km.alamat}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'RT/RW'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${km.rt} + '/' + ${km.rw}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Kelurahan/Desa'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${kem.namaKelurahan}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Kecamatan'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${kec.namaKecamatan}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Kota'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${kot.namaKota}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Golongan Darah'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.golonganDarah}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Agama'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.agama}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Status Perkawinan'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.statusPerkawinan}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Pekerjaan'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${pm.occupation}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Kewarganegaraan'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${isWni}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p th:text="'Status Kematian'"></p>
+				</div>
+				<div class="col">
+					<p th:text="${statuskematian}"></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+				<div th:if="${statuskematian} != Wafat" class="form-group row">
+					<div class="col">
+						<form action="/penduduk/mati" method="post">
+							<input type="hidden" name="nik" th:value="${pm.nik}"></input>
+							<button type="submit" class="btn btn-danger">Nonaktifkan</button>
+						</form>
+					</div>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+				<div class="col">
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="utf-8"></meta>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"></link>
+		
+	   <title>Update Data Penduduk</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					  <a class="navbar-brand" href="/">SI Kependudukan</a>
+					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					    <span class="navbar-toggler-icon"></span>
+					  </button>
+	
+					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					    <ul class="navbar-nav mr-auto">
+					      <li class="nav-item active">
+					        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="#">Cari Data</a>
+					      </li>	
+					    </ul>
+					  </div>
+					</nav>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<br></br>
+				</div>
+			</div>
+			<div th:if="${nikLama != null}" class="row">
+				<div class="col">
+					<h3>Sukses!</h3>
+					<div th:text="'Penduduk dengan NIK ' + ${nikLama} + ' berhasil diubah'"></div>
+				</div>
+			</div>
+			<div th:unless="${nikLama != null}">
+				<div class="row">
+					<div class="col">
+						<h3>Update Penduduk</h3>
+						<br></br>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<form th:object="${penduduk}" th:action="@{${#httpServletRequest.requestURI}}" method="post">
+						  <div class="form-group">
+						    <label for="inputNama">Masukkan Nama</label>
+						      <input th:field="*{nama}" type="text" class="form-control" th:value="${penduduk.nama}"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputTempatLahir">Tempat Lahir</label>
+						      <input th:field="*{tempatLahir}" type="text" class="form-control" id="inputTempatLahir" th:value="${penduduk.tempatLahir}"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputTanggalLahir">Tanggal Lahir</label>
+						      <input th:field="*{tanggalLahir}" class="form-control" type="date" id="inputTanggalLahir" th:value="${penduduk.tanggalLahir}"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputJenisKelamin">Jenis Kelamin</label>
+						      <select th:field="*{jenisKelamin}" class="form-control" id="inputJenisKelamin" th:value="${penduduk.jenisKelamin}">
+							      <option value="0">Laki-laki</option>
+							      <option value="1">Perempuan</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputStatusDalamKeluarga">Status Dalam Keluarga</label>
+						      <select th:field="*{statusDalamKeluarga}" class="form-control" id="inputStatusDalamKeluarga" th:value="${penduduk.statusDalamKeluarga}">
+							      <option value="Anak">Anak</option>
+							      <option value="Istri">Istri</option>
+							      <option value="Famili Lain">Famili Lain</option>
+							      <option value="Kepala Keluarga">Kepala Keluarga</option>
+							      <option value="Pembantu">Pembantu</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputGolonganDarah">Golongan Darah</label>
+						      <select th:field="*{golonganDarah}" class="form-control" id="inputGolonganDarah" th:value="${penduduk.golonganDarah}">
+							      <option value="A+">A+</option>
+							      <option value="A-">A-</option>
+							      <option value="B+">B+</option>
+							      <option value="B-">B-</option>
+							      <option value="AB+">AB+</option>
+							      <option value="AB-">AB-</option>
+							      <option value="O+">O+</option>
+							      <option value="O-">O-</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputAgama">Agama</label>
+						      <select th:field="*{agama}" class="form-control" id="inputAgama" th:value="${penduduk.agama}">
+							      <option value="Islam">Islam</option>
+							      <option value="Kristen Protestan">Kristen Protestan</option>
+							      <option value="Kristen Katolik">Kristen Katolik</option>
+							      <option value="Hindu">Hindu</option>
+							      <option value="Buddha">Buddha</option>
+							      <option value="Konghucu">Konghucu</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputStatusPerkawinan">Status Perkawinan</label>
+						      <select th:field="*{statusPerkawinan}" class="form-control" id="inputStatusPerkawinan" th:value="${penduduk.statusPerkawinan}">
+							      <option value="Belum Kawin">Belum Kawin</option>
+							      <option value="Kawin">Kawin</option>
+							      <option value="Cerai Hidup">Cerai Hidup</option>
+							      <option value="Cerai Mati">Cerai Mati</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputPekerjaan">Pekerjaan</label>
+						      <input th:field="*{occupation}" type="text" class="form-control" id="inputPekerjaan" th:value="${penduduk.occupation}"></input>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputKewarganegaraan">Kewarganegaraan</label>
+						      <select th:field="*{isWni}" class="form-control" id="inputKewarganegaraan" th:value="${penduduk.isWni}">
+							      <option value="1">WNI</option>
+							      <option value="0">WNA</option>
+							  </select></div>
+						  <div class="form-group">
+						    <label for="inputStatusKematian">Status Kematian</label>
+						      <select th:field="*{isWafat}" class="form-control" id="inputStatusKematian" th:value="${penduduk.isWafat}">
+							      <option value="0">Hidup</option>
+							      <option value="1">Mati</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputIdKeluarga">ID Keluarga</label>
+						      <input th:field="*{idKeluarga}" type="text" class="form-control" id="inputIdKeluarga" th:value="${penduduk.idKeluarga}"></input>
+						  </div>
+						  <div class="form-group row">
+						    <div class="col-sm-10">
+						      <button type="submit" class="btn btn-primary">Perbaharui</button>
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Optional JavaScript -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	</body>
+</html>
