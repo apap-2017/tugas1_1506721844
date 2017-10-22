@@ -69,10 +69,12 @@ public interface KeluargaMapper {
 	String selectLastID();
 	
 	@Insert("insert into keluarga (id, nomor_kk, alamat, RT, RW, id_kelurahan, is_tidak_berlaku) "
-			+ "values (#{keluarga.id}, #{keluarga.nomorKk}, #{keluarga.alamat}, #{keluarga.rt}, #{keluarga.rw}, #{keluarga.idKelurahan}, #{keluarga.isTidakBerlaku})")
+			+ "values (#{keluarga.id}, #{keluarga.nomorKk}, #{keluarga.alamat}, #{keluarga.rt}, #{keluarga.rw}, "
+			+ "#{keluarga.idKelurahan}, #{keluarga.isTidakBerlaku})")
 	void addKeluarga(@Param("keluarga") KeluargaModel keluarga);
 	
-	@Update("update keluarga set nomor_kk=#{keluarga.nomorKk}, alamat=#{keluarga.alamat}, RT=#{keluarga.rt}, RW=#{keluarga.rw}, id_kelurahan=#{keluarga.idKelurahan}, is_tidak_berlaku=#{keluarga.isTidakBerlaku} "
+	@Update("update keluarga set nomor_kk=#{keluarga.nomorKk}, alamat=#{keluarga.alamat}, RT=#{keluarga.rt}, RW=#{keluarga.rw}, "
+			+ "id_kelurahan=#{keluarga.idKelurahan}, is_tidak_berlaku=#{keluarga.isTidakBerlaku} "
 			+ "where nomor_kk = #{nkkLama}")
 	void updateKeluarga(
 			@Param("keluarga") KeluargaModel keluarga,

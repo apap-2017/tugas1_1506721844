@@ -20,27 +20,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row">
-				<div class="col">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					  <a class="navbar-brand" href="/">SI Kependudukan</a>
-					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					    <span class="navbar-toggler-icon"></span>
-					  </button>
-	
-					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					    <ul class="navbar-nav mr-auto">
-					      <li class="nav-item active">
-					        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="#">Cari Data</a>
-					      </li>	
-					    </ul>
-					  </div>
-					</nav>
-				</div>
-			</div>
+			<div th:replace="fragments/fragment :: navbar"></div>
 			<div class="row">
 				<div class="col">
 					<br></br>
@@ -157,8 +137,7 @@
 										<td th:text="${iterationStatus.count}">No. 1</td>
 										<td th:text="${penduduk.nik}">Penduduk NIK</td>
 										<td th:text="${penduduk.nama}">Penduduk Nama</td>
-										<td th:text="${penduduk.jenisKelamin} == '0' ? 'Laki-laki' : 'Perempuan'">Anggota Keluarga Nama</td>
-									</tr>
+										<td th:text="${penduduk.jenisKelamin} == '0' ? 'Laki-laki' : 'Perempuan'">Anggota Keluarga Nama</td>									</tr>
 								</tbody>
 							</table>
 						</div>

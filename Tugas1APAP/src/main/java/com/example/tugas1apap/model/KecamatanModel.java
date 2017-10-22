@@ -12,4 +12,4 @@ public class KecamatanModel {
 	private String kodeKecamatan;
 	private String idKota;
 	private String namaKecamatan;
-}
+}	
