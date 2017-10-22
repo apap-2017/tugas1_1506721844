@@ -20,6 +20,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 th:text="'Lihat Data Keluarga - ' + ${km.nomorKk}"></h5>
+							<p th:if="${isTidakBerlaku} == 1" style="color:red;">Kartu Keluarga Ini Sudah Tidak Berlaku</p>
 						</div>
 					</div>
 					<div class="row">

@@ -47,6 +47,7 @@ public class KeluargaController {
 		
 		if(km != null) {
 			model.addAttribute("km", km);
+			model.addAttribute("isTidakBerlaku", km.getIsTidakBerlaku());
 			
 			KelurahanModel kelm = kelurahanDAO.selectKelurahan(km.getIdKelurahan());
 			model.addAttribute("kelm", kelm);
